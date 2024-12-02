@@ -8,7 +8,7 @@ import 'swiper/swiper-bundle.css';
   <div class="swiper-wrapper">
     {photos.map((src:any, index:any) => (
       <div class="swiper-slide">
-        <img class="shadow-lg object-cover rounded-md w-full h-[16rem] md:w-[320px] md:h-[320px]" src={src} alt={`Slide ${index + 1}`} />
+        <img class="cover-photo" src={src} alt={`Slide ${index + 1}`} />
       </div>
     ))}
   </div>
@@ -17,8 +17,8 @@ import 'swiper/swiper-bundle.css';
 <style>
 
     swiper-container {
-      width: 300px;
-      height: 300px;
+      max-width: 300px;
+      max-height: 300px;
     }
 
     swiper-slide {
@@ -35,6 +35,13 @@ import 'swiper/swiper-bundle.css';
       width: 300px;
       height: 300px;
       object-fit: cover;
+    }
+
+    .cover-photo{
+      width: 100%;
+      height: 45%;
+      object-fit: cover;
+      object-position: center;
     }
 </style>
 
@@ -55,5 +62,8 @@ new Swiper('.swiper-container', {
       touchEventsTarget: 'container', 
       touchRatio: 1, 
       touchAngle: 45, 
+      autoplay:true,
+      allowTouchMove:true,
+
     });
 </script>

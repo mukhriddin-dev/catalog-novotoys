@@ -22,8 +22,8 @@ const {
         transition:animate={fade({ duration: '0.5s' })}
     >
         <div class="container mx-auto lg:max-w-[1360px]">
-            <div class="md:flex md:justify-center w-full">
-                <main class="-mt-5 w-full">
+            <div class="w-full">
+                <main class="-mt-5 px-2 w-full">
                     <slot />
                 </main>
             </div>
@@ -64,6 +64,7 @@ const {
             webvisor: true,
         })
     </script>
+
     <noscript>
         <div>
             <img
@@ -73,4 +74,5 @@ const {
             />
         </div>
     </noscript>
+
 </html>
