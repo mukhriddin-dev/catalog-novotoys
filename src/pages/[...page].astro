@@ -1,0 +1,47 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Card from "../components/Card.astro";
+import { getCollection } from "astro:content";
+import configs from "../../.config/astropod.config.json";
+import HeaderCard from "../components/headerCard/HeaderCard.astro";
+import PlainTextRenderer from "marked-plaintext";
+import { marked } from "marked";
+import Pagination from "../components/pagination.astro";
+
+const renderer = new PlainTextRenderer() as any;
+export async function getStaticPaths({ paginate }) {
+  const products = await getCollection("products");
+  products.sort((a: any, b: any) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+  return paginate(products, { pageSize: configs.pageSize });
+}
+const { page } = Astro.props as any;
+---
+
+<BaseLayout>
+
+  <HeaderCard title={configs.name} subtitle={configs.author} />
+  
+  <div class="card grid md:grid-cols-3 grid-cols-1 gap-y-2 min-w-full bg-base-100 shadow-md p-3 pb-3 mt-12">
+    {
+      page.data.map((products: any, index: any) => (
+        <Card
+          title={products.data.name}
+          cover={products.data.cover}
+          slider={products.data.images}
+          desc={marked.parse(products.data.description.slice(0, 500), { renderer: renderer })}
+          url={"/" + products.slug}
+          pubDate={products.data.publishedAt}
+          id={"card-" + index}
+          price={products.data.price}
+        />
+      ))
+    }
+  </div>
+  {
+    (page.url.next || page.url.prev) && (
+      <Pagination page={page} slug="frontend" />
+    )
+  }
+</BaseLayout>
+
+

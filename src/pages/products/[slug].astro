@@ -1,0 +1,31 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import Layout from "../../layouts/ProductLayout.astro";
+
+export async function getStaticPaths() {
+  const products = await getCollection("products");
+  return products.map((entry: any) => ({
+    params: { slug: entry.slug },
+    props: { entry }
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"products">;
+}
+
+const { entry } = Astro.props as Props;
+const { Content } = await entry.render();
+
+---
+
+<Layout>
+  <Content />
+</Layout>
+
+
+
+<script>
+  const footer = document.querySelector(".footer > div");
+  footer?.classList.add("pb-24");
+</script>

@@ -1,0 +1,59 @@
+---
+const {photos}=Astro.props;
+import 'swiper/swiper-bundle.css';
+
+---
+
+<div class="swiper-container  max-w-[320px] overflow-hidden">
+  <div class="swiper-wrapper">
+    {photos.map((src:any, index:any) => (
+      <div class="swiper-slide">
+        <img class="shadow-lg object-cover rounded-md w-full h-[16rem] md:w-[320px] md:h-[320px]" src={src} alt={`Slide ${index + 1}`} />
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+
+    swiper-container {
+      width: 300px;
+      height: 300px;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+    }
+</style>
+
+<script>
+import Swiper from 'swiper';
+new Swiper('.swiper-container', {
+      slidesPerView: 1,
+      spaceBetween: 10,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      loop: true,
+      touchEventsTarget: 'container', 
+      touchRatio: 1, 
+      touchAngle: 45, 
+    });
+</script>
