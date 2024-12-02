@@ -24,7 +24,7 @@ const { page } = Astro.props as any
 <BaseLayout>
     <HeaderCard title={configs.name} subtitle={configs.author} />
 
-    <div class="min-w-full card-grid px-3 py-3 mt-12">
+    <div class="card-grid mt-20">
         {
             page?.data?.map((products: any, index: any) => (
                 <Card
@@ -51,16 +51,33 @@ const { page } = Astro.props as any
         display: grid;
         grid-template-columns: repeat(4, minmax(300px, 1fr));
         justify-content: center;
-        margin: 0 auto;
+        margin: 60px auto;
         justify-items: center;
-        gap:4px;
+        gap:8px 4px;
+    }
 
+    @media only screen and (max-width: 414px) {
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(205px, 1fr));
+            justify-content: center;
+            margin: 0 auto;
+        }
+    }
+
+    @media only screen and (max-width: 390px) {
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(195px, 1fr));
+            justify-content: center;
+            margin: 0 auto;
+        }
     }
 
     @media only screen and (max-width: 375px) {
         .card-grid {
             display: grid;
-            grid-template-columns: repeat(2, minmax(190px, 1fr));
+            grid-template-columns: repeat(2, minmax(184px, 1fr));
             justify-content: center;
             margin: 0 auto;
         }

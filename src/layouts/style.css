@@ -17,13 +17,6 @@
     font-style: normal;
 }
 
-/* .wr h1,
-h2 {
-  font-family: "Funnel Display", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: normal;
-} */
 
 .funnel-display-200 {
     font-family: 'Funnel Display', sans-serif;
@@ -65,4 +58,9 @@ h2 {
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
+}
+
+
+body{
+    overflow-x:hidden !important;
 }

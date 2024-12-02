@@ -8,29 +8,30 @@ dayjs.extend(localizedFormat)
 ---
 
 <div class="product-card">
-    <div class="items-center gap-x-4">
-        <Slider photos={slider ? slider : []} />
-        <div class="grow w-full overflow-auto p-2 md:p-4">
+    <Slider photos={slider ? slider : []} />
 
-            <h2 class="md:text-xl custom-500 text-sm font-semibold truncate md:mb-3">
-                {title}
-            </h2>
+    <div class="grow w-full overflow-auto p-2 md:p-4">
+        <h2 class="md:text-xl custom-500 text-sm font-semibold truncate md:mb-3">
+            {title}
+        </h2>
 
-            <a href={url} class="md:mb-6 mb-2 block">
-                <p class="my-1 text-xs md:text-sm line-clamp-2 custom-400">
-                    {desc}
-                </p>
-            </a>
+        <a href={url} class="md:mb-6 mb-2 block">
+            <p class="my-1 text-xs md:text-sm line-clamp-2 custom-400">
+                {desc}
+            </p>
+        </a>
 
-            <div class="flex md:flex-row md:justify-between md:items-center flex-col md:gap-x-4 gap-2">
-                <button class="lowercase   text-left badge badge-success">
-                    <p> {price} so'm</p>
-                </button>
+        <div
+            class="flex md:flex-row md:justify-between md:items-center flex-col md:gap-x-4 gap-2"
+        >
+            <button class="lowercase text-left badge badge-success">
+                <p>{price} so'm</p>
+            </button>
 
-                <button class="btn btn-primary text-sm px-3 sm:btn-primary btn-sm">
-                    Buyurtma berish
-                </button>
-            </div>
+            <button class="btn btn-primary text-sm px-3 sm:btn-primary btn-sm">
+                <i class="bi bi-basket3-fill text-md"></i>
+                <span>Buyurtma</span>
+            </button>
         </div>
     </div>
 </div>
@@ -39,14 +40,34 @@ dayjs.extend(localizedFormat)
     .product-card {
         position: relative;
         width: 320px;
-        border-radius: 4px;
+        border-radius: 6px;
         overflow: hidden;
+        background: #ffffff;
+        border: 1px solid #c0a7ff35;
+        cursor: pointer;
     }
 
+    .product-card:hover {
+        border: 1px solid #c0a7ffed;
+    }
+
+    @media only screen and (max-width: 414px) {
+        .product-card {
+            position: relative;
+            max-width: 205px;
+        }
+    }
+
+    @media only screen and (max-width: 390px) {
+        .product-card {
+            position: relative;
+            max-width: 196px;
+        }
+    }
     @media only screen and (max-width: 375px) {
         .product-card {
             position: relative;
-            max-width: 184px;
+            width: 187px;
         }
     }
 </style>
