@@ -9,12 +9,17 @@ import { marked } from "marked";
 import Pagination from "../components/pagination.astro";
 
 const renderer = new PlainTextRenderer() as any;
+
 export async function getStaticPaths({ paginate }) {
+
   const products = await getCollection("products");
   products.sort((a: any, b: any) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
   return paginate(products, { pageSize: configs.pageSize });
+
+
 }
 const { page } = Astro.props as any;
+
 ---
 
 <BaseLayout>
@@ -23,7 +28,7 @@ const { page } = Astro.props as any;
   
   <div class="card grid md:grid-cols-3 grid-cols-1 gap-y-2 min-w-full bg-base-100 shadow-md p-3 pb-3 mt-12">
     {
-      page.data.map((products: any, index: any) => (
+      page?.data?.map((products: any, index: any) => (
         <Card
           title={products.data.name}
           cover={products.data.cover}
@@ -39,7 +44,7 @@ const { page } = Astro.props as any;
   </div>
   {
     (page.url.next || page.url.prev) && (
-      <Pagination page={page} slug="frontend" />
+      <Pagination page={page} slug="/" />
     )
   }
 </BaseLayout>

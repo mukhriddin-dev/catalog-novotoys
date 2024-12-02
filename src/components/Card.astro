@@ -10,7 +10,7 @@ dayjs.extend(localizedFormat);
 <div class="product-card border mx-auto rounded-xl overflow-hidden">
 
   <div class="items-center gap-x-4 ">
-    <Slider photos={slider}/>
+    <Slider photos={slider ? slider : []}/>
     <div class="grow w-full overflow-auto p-4">
         <h2 class="md:text-xl custom-500 text-sm font-semibold truncate">
           {title} 
