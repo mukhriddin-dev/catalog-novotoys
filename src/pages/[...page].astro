@@ -53,7 +53,25 @@ const { page } = Astro.props as any
         justify-content: center;
         margin: 60px auto;
         justify-items: center;
-        gap:8px 4px;
+        gap: 8px 4px;
+    }
+
+    @media only screen and (max-width: 440px) {
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(218px, 1fr));
+            justify-content: center;
+            margin: 0 auto;
+        }
+    }
+
+    @media only screen and (max-width: 428px) {
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(205px, 1fr));
+            justify-content: center;
+            margin: 0 auto;
+        }
     }
 
     @media only screen and (max-width: 414px) {

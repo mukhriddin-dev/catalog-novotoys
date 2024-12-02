@@ -1,21 +1,49 @@
 ---
 import '../../assets/fonts/WEB/css/clash-display.css'
+import { socials } from '../../mocks'
 ---
 
 <div class="container mx-auto">
     <div
-        class="z-50 sticky top-0 p-4 mx-auto bg-white flex justify-center w-full items-center"
+        class="z-50 sticky header-content top-0 p-4 mx-auto bg-white flex justify-between w-full items-center"
     >
-        <div class="custom-500 mx-auto">
-            <a href="/">
-                <img
-                    class="w-[220px]"
-                    src="https://static.tildacdn.com/tild3531-3534-4464-a332-663962663532/logo_novo_toys_2.png"
-                    alt="logo"
-                />
-            </a>
+        <a href="/" class="mx-0">
+            <img
+                class="w-[220px]"
+                src="https://static.tildacdn.com/tild3531-3534-4464-a332-663962663532/logo_novo_toys_2.png"
+                alt="logo"
+            />
+        </a>
+
+        <div class="flex">
+            <button  class="btn btn-sm mt-3 bg-indigo-500 hover:text-black text-bold text-white text-sm hidden md:flex">
+                <i class="bi bi-telephone-outbound"></i>
+                <span>+998 11 222 33 44</span>
+            </button>
+
+            <ul class="flex items-center gap-x-1 mt-3">
+                {
+                    socials.map((item) => {
+                        return (
+                            <li class="bg-indigo-500 hover:text-black text-lg text-white btn-square btn btn-sm">
+                                <a href={item.url}>
+                                    <i class={item.icon} />
+                                </a>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
         </div>
     </div>
 </div>
 
-<style></style>
+<style>
+    .header-content {
+        background: rgba(255, 255, 255, 0.6);
+        backdrop-filter: blur(9px);
+        -webkit-backdrop-filter: blur(9px);
+        border-radius: 7px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+</style>

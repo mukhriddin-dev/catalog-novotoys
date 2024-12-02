@@ -1,69 +1,108 @@
 ---
-const {photos}=Astro.props;
-import 'swiper/swiper-bundle.css';
-
+const { photos } = Astro.props
+import 'swiper/swiper-bundle.css'
 ---
 
-<div class="swiper-container  max-w-[320px] overflow-hidden">
-  <div class="swiper-wrapper">
-    {photos.map((src:any, index:any) => (
-      <div class="swiper-slide">
-        <img class="cover-photo" src={src} alt={`Slide ${index + 1}`} />
-      </div>
-    ))}
-  </div>
+<div class="swiper-container max-w-[320px] overflow-hidden">
+    <div class="swiper-wrapper">
+        {
+            photos?.map((src: any, index: any) => (
+                <div class="swiper-slide">
+                    <img
+                        class="cover-photo"
+                        src={src}
+                        alt={`Slide ${index + 1}`}
+                    />
+                </div>
+            ))
+        }
+    </div>
 </div>
 
 <style>
-
-    swiper-container {
-      max-width: 300px;
-      max-height: 300px;
+    .swiper-container {
+        max-width: 300px;
     }
 
-    swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+       
     }
 
-    swiper-slide img {
-      display: block;
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
+    .swiper-slide img {
+        display: block;
+        width: 300px;
+        object-fit: cover;
     }
 
-    .cover-photo{
-      width: 100%;
-      height: 45%;
-      object-fit: cover;
-      object-position: center;
+    .cover-photo {
+        width: 100%;
+        height: 45%;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    @media only screen and (max-width: 414px) {
+        .swiper-container {
+            max-width: 300px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 200px;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 300px;
+            height: 195px;
+            object-fit: contain;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 45%;
+            object-fit: cover;
+            object-position: center;
+        }
+    }
+
+    @media only screen and (max-width: 390px) {
+        .swiper-container {
+            max-width: 300px;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 200px;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 300px;
+            height: 195px;
+            object-fit: contain;
+        }
+
+        .cover-photo {
+            width: 100%;
+            height: 45%;
+            object-fit: cover;
+            object-position: center;
+        }
     }
 </style>
 
-<script>
-import Swiper from 'swiper';
-new Swiper('.swiper-container', {
-      slidesPerView: 1,
-      spaceBetween: 10,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      loop: true,
-      touchEventsTarget: 'container', 
-      touchRatio: 1, 
-      touchAngle: 45, 
-      autoplay:true,
-      allowTouchMove:true,
-
-    });
-</script>
+<script src="../../public/swiper.js"></script>

@@ -1,0 +1,1 @@
+export const socials = [{ name: "Telegram", icon: "bi bi-telegram", url: "https://t.me" }, { name: "Instagram", icon: "bi bi-instagram", url: "https://www.instagram.com" }, { name: "Facebook", icon: "bi bi-facebook", url: "https://www.facebook.com" }];

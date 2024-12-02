@@ -11,7 +11,9 @@ dayjs.extend(localizedFormat)
     <Slider photos={slider ? slider : []} />
 
     <div class="grow w-full overflow-auto p-2 md:p-4">
-        <h2 class="md:text-xl custom-500 text-sm font-semibold truncate md:mb-3">
+        <h2
+            class="md:text-xl custom-500 text-sm font-semibold truncate md:mb-3"
+        >
             {title}
         </h2>
 
@@ -51,6 +53,20 @@ dayjs.extend(localizedFormat)
         border: 1px solid #c0a7ffed;
     }
 
+    @media only screen and (max-width: 440px) {
+        .product-card {
+            position: relative;
+            max-width: 220px;
+        }
+    }
+
+    @media only screen and (max-width: 428px) {
+        .product-card {
+            position: relative;
+            max-width: 212px;
+        }
+    }
+
     @media only screen and (max-width: 414px) {
         .product-card {
             position: relative;
@@ -68,6 +84,7 @@ dayjs.extend(localizedFormat)
         .product-card {
             position: relative;
             width: 187px;
+            height: 340px;
         }
     }
 </style>
