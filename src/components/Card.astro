@@ -1,5 +1,5 @@
 ---
-const { title, cover, desc, url, pubDate, slider, price } = Astro.props
+const { title, cover , desc, url,  slider, price } = Astro.props
 import Slider from './Slider.astro'
 import dayjs from 'dayjs'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
@@ -21,10 +21,10 @@ dayjs.extend(localizedFormat)
                 </p>
             </a>
             <div class="flex gap-x-4 ">
-                <button class="btn btn-ghost lowercase">
+                <button class="btn btn-ghost lowercase btn-sm">
                     <p>{price} so'm</p>
                 </button>
-                <button class="btn btn-primary text-sm px-3 sm:btn-primary"> Buyurtma berish </button>
+                <button class="btn btn-primary text-sm px-3 sm:btn-primary btn-sm"> Buyurtma berish </button>
             </div>
         </div>
     </div>
