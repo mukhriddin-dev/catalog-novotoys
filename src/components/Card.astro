@@ -2,6 +2,7 @@
 const { title, cover, desc, url, slider, price } = Astro.props
 import Slider from './Slider.astro'
 import dayjs from 'dayjs'
+import SubmitButton from './modals/modal-form.astro'
 import localizedFormat from 'dayjs/plugin/localizedFormat'
 import '../assets/fonts/WEB/css/clash-display.css'
 dayjs.extend(localizedFormat)
@@ -27,13 +28,10 @@ dayjs.extend(localizedFormat)
             class="flex md:flex-row md:justify-between md:items-center flex-col md:gap-x-4 gap-2"
         >
             <button class="lowercase text-left badge badge-success">
-                <p>{price} so'm</p>
+                <p class="font-bold">{price} so'm</p>
             </button>
 
-            <button class="btn btn-primary text-sm px-3 sm:btn-primary btn-sm">
-                <i class="bi bi-basket3-fill text-md"></i>
-                <span>Buyurtma</span>
-            </button>
+            <SubmitButton modalTitle="tests" modalContent="" tests2 />
         </div>
     </div>
 </div>
@@ -53,6 +51,26 @@ dayjs.extend(localizedFormat)
         border: 1px solid #c0a7ffed;
     }
 
+    @media only screen and (max-width: 768px) {
+        .product-card {
+            position: relative;
+            max-width: 300px;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .product-card {
+            position: relative;
+            max-width: 280px;
+        }
+    }
+
+    @media only screen and (max-width: 480px) {
+        .product-card {
+            position: relative;
+            max-width: 236px;
+        }
+    }
     @media only screen and (max-width: 440px) {
         .product-card {
             position: relative;

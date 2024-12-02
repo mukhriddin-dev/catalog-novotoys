@@ -1,0 +1,30 @@
+---
+const { modalTitle, modalContent } = Astro.props
+---
+
+<div>
+    <!-- Modalni ochish tugmasi -->
+    <label for="my-modal">
+        <button
+           
+            class="btn btn-primary text-sm px-3 sm:btn-primary btn-sm"
+        >
+            <i class="bi bi-basket3-fill text-md"></i>
+            <span>Buyurtma</span>
+        </button>
+    </label>
+
+    <!-- Modal -->
+    <input type="checkbox" id="my-modal" class="modal-toggle" />
+    <div class="modal">
+        <div class="modal-box">
+            <h3 class="font-bold text-lg">{modalTitle || 'Modal Title'}</h3>
+            <p class="py-4">
+                {modalContent || 'This is a simple modal content.'}
+            </p>
+            <div class="modal-action">
+                <label for="my-modal" class="btn">Close</label>
+            </div>
+        </div>
+    </div>
+</div>
